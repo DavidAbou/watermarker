@@ -19,8 +19,11 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
+        sudo apt-get install python3-tk
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Build appplication
       run: |
         pyinstaller --name Filigraneur --icon="icon.ico" --onefile script.py
+    - name: List files
+      run: ls -R
